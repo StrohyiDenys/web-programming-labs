@@ -1,0 +1,54 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <p> Вітаємо Вас на нашому сайті </p> </head>
+
+<body>
+
+
+<FORM>
+
+    <P> Введіть логін:
+
+        <INPUT NAME="login">
+
+    <P> Введіть пароль:
+
+        <INPUT TYPE="password"
+
+               NAME="parol">
+
+    <INPUT TYPE="submit" VALUE="Submit">
+
+    <INPUT TYPE="reset" VALUE="Reset"> </FORM>
+
+<H3 ALIGN=CENTER> Анкета користувача </H3>
+<P> Дайте відповіді на наступні запитання:
+<FORM METHOD="POST">
+    <P> Ваше ім'я: <INPUT NAME="name" SIZE="48">
+    <P> Стать чоловіча <INPUT NAME="gender" TYPE=RADIO VALUE="male">
+    <P> Стать жіноча <INPUT NAME="gender" TYPE=RADIO VALUE="female">
+    <P> Діти <INPUT NAME="family" TYPE=TEXT>
+    <UL>
+        <LI> Є <INPUT NAME="children" TYPE="checkbox" VALUE="yes">
+        <LI> Немає <INPUT NAME="children" TYPE="checkbox" VALUE="no">
+    </UL>
+    <P>
+    <TEXTAREA NAME="text" COLS=30 ROWS=3></TEXTAREA>
+    <P>
+    <SELECT NAME="Місто проживання">
+        <OPTION> Суми
+        <OPTION> Київ
+        <OPTION value="Other">Інше
+        <OPTION selected> Суми
+    </SELECT>
+    <P>
+    <button name="questionnaire" value="123" type="submit">Відправити</button>
+    <button name="questionnaire" value="123" type="reset">Очистити форму</button>
+</FORM>
+
+</body>
+
+</html>
