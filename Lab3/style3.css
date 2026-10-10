@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.stage {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    width: max-content;
+    margin: 130px auto 0;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    width: 125px;
+}
+
+.block {
+    border: 2px solid #333;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 25%);
+}
+
+.block-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    height: 42px;
+    background: #00b65a;
+    color: #111;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.block-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    height: 104px;
+    background: #5893d1;
+    color: #fff;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 150ms ease;
+}
+
+.block-3 {
+    width: 238px;
+    height: 159px;
+    padding: 8px 28px;
+    background: #624a7d;
+    color: #ddd;
+    font-size: 14px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 150ms ease;
+}
+
+.stage:has(.left-column:hover) .block-2,
+.stage:has(.block-2:hover) .block-2 {
+    visibility: visible;
+    opacity: 1;
+}
+
+.stage:has(.block-2:hover) .block-3 {
+    visibility: visible;
+    opacity: 1;
+}

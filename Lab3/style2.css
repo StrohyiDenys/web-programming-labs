@@ -1,0 +1,52 @@
+body {
+    background-color: #e0e0e0;
+    font-family: sans-serif;
+    margin: 0;
+}
+.canvas {
+    width: 500px;
+    height: 320px;
+    margin: 0 auto;
+    position: relative;
+}
+.box {
+    position: absolute;
+    border: 2px solid #333;
+    padding: 12px;
+    box-sizing: border-box;
+    color: #111;
+    font-size: 18px;
+    line-height: 21px;
+}
+.box-1 {
+    width: 136px;
+    height: 107px;
+    background-color: #3a9273;
+    top: 17px;
+    left: 220px;
+    padding: 12px 9px;
+}
+.box-2 {
+    width: 198px;
+    height: 167px;
+    background-color: #9bd52d;
+    top: 136px;
+    left: 201px;
+    padding: 28px 16px;
+}
+.box-3 {
+    width: 181px;
+    height: 108px;
+    background-color: #705747;
+    top: 171px;
+    left: 7px;
+    padding: 20px 44px;
+}
+.box-4 {
+    width: 93px;
+    height: 121px;
+    background-color: #921436;
+    top: 158px;
+    left: 408px;
+    padding: 25px 2px;
+}
