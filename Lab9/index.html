@@ -2,30 +2,62 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Лабораторна робота 10</title>
+    <title>Лабораторна робота 9</title>
 </head>
 <body>
 
-<h2>Список продуктів з API</h2>
-<button onclick="loadProducts()">Завантажити продукти</button>
-<div id="result"></div>
+<h2>Список товарів</h2>
+<div id="products"></div>
+
+<h2>Кошик</h2>
+<div id="cart">Кошик порожній</div>
 
 <script>
-    function loadProducts() {
-        fetch('https://fakestoreapi.com/products?limit=5')
-            .then(response => response.json())
-            .then(data => {
-                let html = "<ul>";
-                for (let i = 0; i < data.length; i++) {
-                    html += "<li>" + data[i].title + " - $" + data[i].price + "</li>";
-                }
-                html += "</ul>";
-                document.getElementById("result").innerHTML = html;
-            })
-            .catch(error => {
-                document.getElementById("result").innerHTML = "Помилка завантаження даних!";
-            });
+    let cart = [];
+
+    let productsData = [
+        {id: 1, name: "Товар 1", price: 100},
+        {id: 2, name: "Товар 2", price: 250},
+        {id: 3, name: "Товар 3", price: 400}
+    ];
+
+    function renderProducts() {
+        let container = document.getElementById("products");
+        let html = "";
+        for (let i = 0; i < productsData.length; i++) {
+            html += "<p>" + productsData[i].name + " - " + productsData[i].price + " грн " +
+                    "<button onclick='addToCart(" + productsData[i].id + ")'>Купити</button></p>";
+        }
+        container.innerHTML = html;
     }
+
+    function addToCart(id) {
+        for (let i = 0; i < productsData.length; i++) {
+            if (productsData[i].id === id) {
+                cart.push(productsData[i]);
+                break;
+            }
+        }
+        renderCart();
+    }
+
+    function renderCart() {
+        let cartContainer = document.getElementById("cart");
+        if (cart.length === 0) {
+            cartContainer.innerHTML = "Кошик порожній";
+            return;
+        }
+        let html = "<ul>";
+        let total = 0;
+        for (let i = 0; i < cart.length; i++) {
+            html += "<li>" + cart[i].name + " - " + cart[i].price + " грн</li>";
+            total += cart[i].price;
+        }
+        html += "</ul><p><b>Загальна сума: " + total + " грн</b></p>";
+        cartContainer.innerHTML = html;
+    }
+
+    renderProducts();
 </script>
 
 </body>

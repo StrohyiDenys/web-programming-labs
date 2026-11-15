@@ -2,62 +2,67 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Лабораторна робота 9</title>
+    <title>Лабораторна робота 8</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        td {
+            border: 1px solid #ccc;
+            padding: 8px 15px;
+            cursor: pointer;
+            background: #f0f0f0;
+            text-align: center;
+        }
+        td:hover {
+            background: #e0e0e0;
+        }
+        .tab-content {
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 300px;
+        }
+        .tab-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Список товарів</h2>
-<div id="products"></div>
+<table>
+    <tr>
+        <td onclick="changeTab(1)">Назва 1</td>
+        <td onclick="changeTab(2)">Назва 2</td>
+        <td onclick="changeTab(3)">Назва 3</td>
+        <td onclick="changeTab(4)">Назва 4</td>
+        <td onclick="changeTab(5)">Назва 5</td>
+    </tr>
+</table>
 
-<h2>Кошик</h2>
-<div id="cart">Кошик порожній</div>
+<div id="contentBlock" class="tab-content">
+    <h3>Інформація 1</h3>
+    <p>Це опис для першої вкладки сайту.</p>
+    <img id="tabImage" src="https://via.placeholder.com/250x150?text=Tab+1" alt="image">
+</div>
 
 <script>
-    let cart = [];
+    function changeTab(tabNumber) {
+        let block = document.getElementById("contentBlock");
 
-    let productsData = [
-        {id: 1, name: "Товар 1", price: 100},
-        {id: 2, name: "Товар 2", price: 250},
-        {id: 3, name: "Товар 3", price: 400}
-    ];
+        let texts = [
+            "<h3>Інформація 1</h3><p>Це опис для першої вкладки сайту.</p><img id='tabImage' src='https://via.placeholder.com/250x150?text=Tab+1' alt='image'>",
+            "<h3>Інформація 2</h3><p>Це опис для другої вкладки сайту.</p><img id='tabImage' src='https://via.placeholder.com/250x150?text=Tab+2' alt='image'>",
+            "<h3>Інформація 3</h3><p>Це опис для третьої вкладки сайту.</p><img id='tabImage' src='https://via.placeholder.com/250x150?text=Tab+3' alt='image'>",
+            "<h3>Інформація 4</h3><p>Це опис для четвертої вкладки сайту.</p><img id='tabImage' src='https://via.placeholder.com/250x150?text=Tab+4' alt='image'>",
+            "<h3>Інформація 5</h3><p>Це опис для п'ятої вкладки сайту.</p><img id='tabImage' src='https://via.placeholder.com/250x150?text=Tab+5' alt='image'>"
+        ];
 
-    function renderProducts() {
-        let container = document.getElementById("products");
-        let html = "";
-        for (let i = 0; i < productsData.length; i++) {
-            html += "<p>" + productsData[i].name + " - " + productsData[i].price + " грн " +
-                    "<button onclick='addToCart(" + productsData[i].id + ")'>Купити</button></p>";
-        }
-        container.innerHTML = html;
+        block.innerHTML = texts[tabNumber - 1];
     }
-
-    function addToCart(id) {
-        for (let i = 0; i < productsData.length; i++) {
-            if (productsData[i].id === id) {
-                cart.push(productsData[i]);
-                break;
-            }
-        }
-        renderCart();
-    }
-
-    function renderCart() {
-        let cartContainer = document.getElementById("cart");
-        if (cart.length === 0) {
-            cartContainer.innerHTML = "Кошик порожній";
-            return;
-        }
-        let html = "<ul>";
-        let total = 0;
-        for (let i = 0; i < cart.length; i++) {
-            html += "<li>" + cart[i].name + " - " + cart[i].price + " грн</li>";
-            total += cart[i].price;
-        }
-        html += "</ul><p><b>Загальна сума: " + total + " грн</b></p>";
-        cartContainer.innerHTML = html;
-    }
-
-    renderProducts();
 </script>
 
 </body>

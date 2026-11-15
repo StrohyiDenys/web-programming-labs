@@ -2,23 +2,27 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Лабораторна робота 7</title>
+    <title>Лабораторна робота 6</title>
 </head>
 <body>
 
 <script>
-    function calculateSum(a, b) {
-        return a + b;
-    }
+    let salaryInput = prompt("Введіть суму зарплати:");
+    let salary = parseFloat(salaryInput);
 
-    let num1 = parseFloat(prompt("Введіть перше число:"));
-    let num2 = parseFloat(prompt("Введіть друге число:"));
-
-    if (!isNaN(num1) && !isNaN(num2)) {
-        let result = calculateSum(num1, num2);
-        alert("Сума дорівнює: " + result);
+    if (isNaN(salary) || salary < 0) {
+        alert("Будь ласка, введіть коректне число!");
     } else {
-        alert("Помилка введення даних!");
+        let bonus = salary * 0.15;
+        let totalWithBonus = salary + bonus;
+        let tax = totalWithBonus * 0.18;
+        let finalAmount = totalWithBonus - tax;
+
+        alert("Зарплата: " + salary + "\n" +
+              "Премія (15%): " + bonus + "\n" +
+              "Сума з премією: " + totalWithBonus + "\n" +
+              "Податок (18%): " + tax + "\n" +
+              "Сума до видачі: " + finalAmount);
     }
 </script>
 

@@ -2,66 +2,23 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Лабораторна робота 8</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            margin-bottom: 10px;
-        }
-        td {
-            border: 1px solid #ccc;
-            padding: 8px 15px;
-            cursor: pointer;
-            background: #f0f0f0;
-            text-align: center;
-        }
-        td:hover {
-            background: #e0e0e0;
-        }
-        .tab-content {
-            border: 1px solid #ccc;
-            padding: 20px;
-            width: 300px;
-        }
-        .tab-content img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin-top: 10px;
-        }
-    </style>
+    <title>Лабораторна робота 7</title>
 </head>
 <body>
 
-<table>
-    <tr>
-        <td onclick="changeTab(1)">Назва 1</td>
-        <td onclick="changeTab(2)">Назва 2</td>
-        <td onclick="changeTab(3)">Назва 3</td>
-        <td onclick="changeTab(4)">Назва 4</td>
-        <td onclick="changeTab(5)">Назва 5</td>
-    </tr>
-</table>
-
-<div id="contentBlock" class="tab-content">
-    <h3>Інформація 1</h3>
-    <p>Це опис для першої вкладки сайту.</p>
-    <img id="tabImage" src="https://via.placeholder.com/250x150?text=Tab+1" alt="image">
-</div>
-
 <script>
-    function changeTab(tabNumber) {
-        let block = document.getElementById("contentBlock");
+    function calculateSum(a, b) {
+        return a + b;
+    }
 
-        let texts = [
-            "<h3>Інформація 1</h3><p>Це опис для першої вкладки сайту.</p><img id='tabImage' src='https://via.placeholder.com/250x150?text=Tab+1' alt='image'>",
-            "<h3>Інформація 2</h3><p>Це опис для другої вкладки сайту.</p><img id='tabImage' src='https://via.placeholder.com/250x150?text=Tab+2' alt='image'>",
-            "<h3>Інформація 3</h3><p>Це опис для третьої вкладки сайту.</p><img id='tabImage' src='https://via.placeholder.com/250x150?text=Tab+3' alt='image'>",
-            "<h3>Інформація 4</h3><p>Це опис для четвертої вкладки сайту.</p><img id='tabImage' src='https://via.placeholder.com/250x150?text=Tab+4' alt='image'>",
-            "<h3>Інформація 5</h3><p>Це опис для п'ятої вкладки сайту.</p><img id='tabImage' src='https://via.placeholder.com/250x150?text=Tab+5' alt='image'>"
-        ];
+    let num1 = parseFloat(prompt("Введіть перше число:"));
+    let num2 = parseFloat(prompt("Введіть друге число:"));
 
-        block.innerHTML = texts[tabNumber - 1];
+    if (!isNaN(num1) && !isNaN(num2)) {
+        let result = calculateSum(num1, num2);
+        alert("Сума дорівнює: " + result);
+    } else {
+        alert("Помилка введення даних!");
     }
 </script>
 
