@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Лабораторна робота 7</title>
+</head>
+<body>
+
+<script>
+    function calculateSum(a, b) {
+        return a + b;
+    }
+
+    let num1 = parseFloat(prompt("Введіть перше число:"));
+    let num2 = parseFloat(prompt("Введіть друге число:"));
+
+    if (!isNaN(num1) && !isNaN(num2)) {
+        let result = calculateSum(num1, num2);
+        alert("Сума дорівнює: " + result);
+    } else {
+        alert("Помилка введення даних!");
+    }
+</script>
+
+</body>
+</html>
