@@ -1,17 +1,30 @@
 [
-  {
-    "id": 1,
-    "name": "Товар 1",
-    "price": 100
-  },
-  {
-    "id": 2,
-    "name": "Товар 2",
-    "price": 250
-  },
-  {
-    "id": 3,
-    "name": "Товар 3",
-    "price": 400
-  }
+    {
+        "name": "Кросівки бігові",
+        "category": "shoe",
+        "amount": 5,
+        "image": "https://picsum.photos/id/21/200/150",
+        "size": 42
+    },
+    {
+        "name": "Черевики зимові",
+        "category": "shoe",
+        "amount": 3,
+        "image": "https://picsum.photos/id/22/200/150",
+        "size": 43
+    },
+    {
+        "name": "Яблука свіжі",
+        "category": "grocerie",
+        "amount": 10,
+        "image": "https://picsum.photos/id/23/200/150",
+        "weight": "1 кг"
+    },
+    {
+        "name": "Сир твердий",
+        "category": "grocerie",
+        "amount": 4,
+        "image": "https://picsum.photos/id/24/200/150",
+        "weight": "300 г"
+    }
 ]

@@ -1,69 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
-    <meta charset="utf-8">
-    <title>Лабораторна робота 8</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            margin-bottom: 10px;
-        }
-        td {
-            border: 1px solid #ccc;
-            padding: 8px 15px;
-            cursor: pointer;
-            background: #f0f0f0;
-            text-align: center;
-        }
-        td:hover {
-            background: #e0e0e0;
-        }
-        .tab-content {
-            border: 1px solid #ccc;
-            padding: 20px;
-            width: 300px;
-        }
-        .tab-content img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin-top: 10px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>Лабораторна робота №8</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h2>Завдання 1: Таби (Закладинки)</h2>
+    <table class="tabs-table">
+        <tr>
+            <td id="tab1" class="tab active" onclick="openTab(1)">Назва 1</td>
+            <td id="tab2" class="tab" onclick="openTab(2)">Назва 2</td>
+            <td id="tab3" class="tab" onclick="openTab(3)">Назва 3</td>
+            <td id="tab4" class="tab" onclick="openTab(4)">Назва 4</td>
+            <td id="tab5" class="tab" onclick="openTab(5)">Назва 5</td>
+        </tr>
+        <tr>
+            <td colspan="5" id="tab-content" class="tab-body">
+                <h3>Розділ 1: Веб-розробка</h3>
+                <p>HTML та CSS створюють структуру та зовнішній вигляд сторінки.</p>
+                <img src="https://picsum.photos/id/1/300/180" alt="Таб 1">
+            </td>
+        </tr>
+    </table>
 
-<table>
-    <tr>
-        <td onclick="changeTab(1)">Назва 1</td>
-        <td onclick="changeTab(2)">Назва 2</td>
-        <td onclick="changeTab(3)">Назва 3</td>
-        <td onclick="changeTab(4)">Назва 4</td>
-        <td onclick="changeTab(5)">Назва 5</td>
-    </tr>
-</table>
+    <hr>
 
-<div id="contentBlock" class="tab-content">
-    <h3>Інформація 1</h3>
-    <p>Це опис для першої вкладки сайту.</p>
-    <img id="tabImage" src="https://via.placeholder.com/250x150?text=Tab+1" alt="image">
-</div>
+    <h2>Завдання 2: Генератор елементів списку</h2>
+    <input type="text" id="item-text" placeholder="Введіть текст елемента">
+    <button onclick="addItem()">Додати елемент</button>
+    <ul id="dynamic-list"></ul>
 
-<script>
-    function changeTab(tabNumber) {
-        let block = document.getElementById("contentBlock");
-
-        let texts = [
-            "<h3>Інформація 1</h3><p>Це опис для першої вкладки сайту.</p><img id='tabImage' src='https://via.placeholder.com/250x150?text=Tab+1' alt='image'>",
-            "<h3>Інформація 2</h3><p>Це опис для другої вкладки сайту.</p><img id='tabImage' src='https://via.placeholder.com/250x150?text=Tab+2' alt='image'>",
-            "<h3>Інформація 3</h3><p>Це опис для третьої вкладки сайту.</p><img id='tabImage' src='https://via.placeholder.com/250x150?text=Tab+3' alt='image'>",
-            "<h3>Інформація 4</h3><p>Це опис для четвертої вкладки сайту.</p><img id='tabImage' src='https://via.placeholder.com/250x150?text=Tab+4' alt='image'>",
-            "<h3>Інформація 5</h3><p>Це опис для п'ятої вкладки сайту.</p><img id='tabImage' src='https://via.placeholder.com/250x150?text=Tab+5' alt='image'>"
-        ];
-
-        block.innerHTML = texts[tabNumber - 1];
-    }
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>

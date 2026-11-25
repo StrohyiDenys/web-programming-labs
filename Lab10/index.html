@@ -1,32 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
-    <meta charset="utf-8">
-    <title>Лабораторна робота 10</title>
+    <meta charset="UTF-8">
+    <title>Лабораторна робота №10 - DummyJSON Products</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>Каталог товарів (DummyJSON API)</h1>
+        <div class="controls">
+            <input type="text" id="search-input" placeholder="Пошук товару...">
+            <button onclick="searchProducts()">Знайти</button>
+            <select id="category-select" onchange="filterByCategory()">
+                <option value="all">Усі категорії</option>
+            </select>
+        </div>
+    </header>
 
-<h2>Список продуктів з API</h2>
-<button onclick="loadProducts()">Завантажити продукти</button>
-<div id="result"></div>
+    <main>
+        <div id="products-container"></div>
+    </main>
 
-<script>
-    function loadProducts() {
-        fetch('https://fakestoreapi.com/products?limit=5')
-            .then(response => response.json())
-            .then(data => {
-                let html = "<ul>";
-                for (let i = 0; i < data.length; i++) {
-                    html += "<li>" + data[i].title + " - $" + data[i].price + "</li>";
-                }
-                html += "</ul>";
-                document.getElementById("result").innerHTML = html;
-            })
-            .catch(error => {
-                document.getElementById("result").innerHTML = "Помилка завантаження даних!";
-            });
-    }
-</script>
-
+    <script src="index.js"></script>
 </body>
 </html>
