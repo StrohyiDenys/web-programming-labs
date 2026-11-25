@@ -8,11 +8,11 @@
             border-collapse: collapse;
             margin: 20px auto;
             font-family: Arial, sans-serif;
+            min-width: 600px;
         }
-        td, th {
+        th, td {
             border: 1px solid #333;
-            width: 40px;
-            height: 40px;
+            padding: 10px 14px;
             text-align: center;
         }
         th {
@@ -22,22 +22,44 @@
         td {
             background-color: #ecf0f1;
         }
+        .total-row td {
+            background-color: #d5dbdb;
+            font-weight: bold;
+        }
+        .total-label {
+            text-align: right;
+        }
     </style>
 </head>
 <body>
 <script>
+    const products = [
+        { code: "101", name: "Ноутбук", price: 25000, quantity: 2 },
+        { code: "102", name: "Миша бездротова", price: 650, quantity: 5 },
+        { code: "103", name: "Клавіатура механічна", price: 2100, quantity: 3 },
+        { code: "104", name: "Монітор 24\"", price: 7400, quantity: 2 },
+        { code: "105", name: "Навушники", price: 1450, quantity: 4 }
+    ];
+
+    let totalSum = 0;
+
     document.write("<table>");
-    for (let i = 1; i <= 10; i++) {
+    document.write("<tr><th>Код</th><th>Найменування</th><th>Ціна за одиницю, грн</th><th>Кількість</th><th>Сума, грн</th></tr>");
+
+    for (let i = 0; i < products.length; i++) {
+        let itemSum = products[i].price * products[i].quantity;
+        totalSum += itemSum;
+
         document.write("<tr>");
-        for (let j = 1; j <= 10; j++) {
-            if (i === 1 || j === 1) {
-                document.write("<th>" + (i * j) + "</th>");
-            } else {
-                document.write("<td>" + (i * j) + "</td>");
-            }
-        }
+        document.write("<td>" + products[i].code + "</td>");
+        document.write("<td>" + products[i].name + "</td>");
+        document.write("<td>" + products[i].price.toFixed(2) + "</td>");
+        document.write("<td>" + products[i].quantity + "</td>");
+        document.write("<td>" + itemSum.toFixed(2) + "</td>");
         document.write("</tr>");
     }
+
+    document.write('<tr class="total-row"><td colspan="4" class="total-label">Всього:</td><td>' + totalSum.toFixed(2) + "</td></tr>");
     document.write("</table>");
 </script>
 </body>

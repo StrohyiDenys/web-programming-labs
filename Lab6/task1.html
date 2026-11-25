@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
-    <meta charset="utf-8">
-    <title>Лабораторна робота 6</title>
+    <meta charset="UTF-8">
+    <title>Лабораторна робота №6 - Завдання 1</title>
 </head>
 <body>
-
 <script>
     let salaryInput = prompt("Введіть суму зарплати:");
-    let salary = parseFloat(salaryInput);
 
-    if (isNaN(salary) || salary < 0) {
-        alert("Будь ласка, введіть коректне число!");
+    if (salaryInput === null) {
+        alert("Введення скасовано.");
     } else {
-        let bonus = salary * 0.15;
-        let totalWithBonus = salary + bonus;
-        let tax = totalWithBonus * 0.18;
-        let finalAmount = totalWithBonus - tax;
+        let salary = Number(salaryInput.trim());
 
-        alert("Зарплата: " + salary + "\n" +
-            "Премія (15%): " + bonus + "\n" +
-            "Сума з премією: " + totalWithBonus + "\n" +
-            "Податок (18%): " + tax + "\n" +
-            "Сума до видачі: " + finalAmount);
+        if (salaryInput.trim() === "" || isNaN(salary) || salary < 0) {
+            alert("Будь ласка, введіть коректне число!");
+        } else {
+            let bonus = salary * 0.15;
+            let totalWithBonus = salary + bonus;
+            let tax = totalWithBonus * 0.18;
+            let finalAmount = totalWithBonus - tax;
+
+            alert(
+                "Зарплата: " + salary.toFixed(2) + "\n" +
+                "Премія (15%): " + bonus.toFixed(2) + "\n" +
+                "Сума з премією: " + totalWithBonus.toFixed(2) + "\n" +
+                "Податок (18%): " + tax.toFixed(2) + "\n" +
+                "Сума до видачі: " + finalAmount.toFixed(2)
+            );
+        }
     }
 </script>
-
 </body>
 </html>

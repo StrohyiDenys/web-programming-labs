@@ -6,6 +6,111 @@
 </head>
 <body>
     <h2>Лабораторна робота №7</h2>
-    <script src="script.js"></script>
+    <script>
+        function sumOrMinus() {
+            if (arguments.length === 0) {
+                return 0;
+            }
+            if (arguments.length % 2 === 0) {
+                let sum = 0;
+                for (let i = 0; i < arguments.length; i++) {
+                    sum += arguments[i];
+                }
+                return sum;
+            } else {
+                let diff = arguments[arguments.length - 1];
+                for (let i = arguments.length - 2; i >= 0; i--) {
+                    diff -= arguments[i];
+                }
+                return diff;
+            }
+        }
+
+        function factorialRecursion(n) {
+            if (n < 0) {
+                return NaN;
+            }
+            if (n === 0 || n === 1) {
+                return 1;
+            }
+            return n * factorialRecursion(n - 1);
+        }
+
+        let numberOfRecursionCalls = 0;
+        let numberOfMemoCalls = 0;
+
+        function fibonachiRecursion(numberInRow) {
+            numberOfRecursionCalls++;
+            if (numberInRow <= 1) {
+                return numberInRow;
+            }
+            return fibonachiRecursion(numberInRow - 1) + fibonachiRecursion(numberInRow - 2);
+        }
+
+        function createFibonachiMemo() {
+            const cache = {};
+            return function fib(numberInRow) {
+                numberOfMemoCalls++;
+                if (numberInRow in cache) {
+                    return cache[numberInRow];
+                }
+                if (numberInRow <= 1) {
+                    cache[numberInRow] = numberInRow;
+                    return numberInRow;
+                }
+                cache[numberInRow] = fib(numberInRow - 1) + fib(numberInRow - 2);
+                return cache[numberInRow];
+            };
+        }
+
+        const fibonachiMemo = createFibonachiMemo();
+
+        let input1 = prompt("Завдання 1. Введіть числа через пробіл або кому:", "2, 5, 10");
+        if (input1 !== null && input1.trim() !== "") {
+            let nums = input1.trim().split(/[\s,;]+/).map(Number);
+            if (nums.every(Number.isFinite)) {
+                let res1 = sumOrMinus(...nums);
+                let mode = nums.length % 2 === 0 ? "сума" : "різниця від останнього до першого";
+                alert("Завдання 1 (" + mode + "): " + res1);
+                console.log("Завдання 1:", res1);
+            } else {
+                alert("Завдання 1: введено некоректні дані.");
+            }
+        }
+
+        let input2 = prompt("Завдання 2. Введіть ціле невід'ємне число для обчислення факторіалу:", "5");
+        if (input2 !== null && input2.trim() !== "") {
+            let n = Number(input2.trim());
+            if (Number.isInteger(n) && n >= 0) {
+                let res2 = factorialRecursion(n);
+                alert("Завдання 2. Факторіал числа " + n + "! = " + res2);
+                console.log("Завдання 2:", res2);
+            } else {
+                alert("Завдання 2: введіть ціле число >= 0.");
+            }
+        }
+
+        let input3 = prompt("Завдання 3. Введіть порядковий номер числа Фібоначчі:", "10");
+        if (input3 !== null && input3.trim() !== "") {
+            let fibIndex = Number(input3.trim());
+            if (Number.isInteger(fibIndex) && fibIndex >= 0) {
+                numberOfRecursionCalls = 0;
+                numberOfMemoCalls = 0;
+
+                let resRec = fibonachiRecursion(fibIndex);
+                let resMemo = fibonachiMemo(fibIndex);
+
+                alert(
+                    "Завдання 3. Число Фібоначчі №" + fibIndex + " = " + resMemo + "\n" +
+                    "Викликів зі звичайною рекурсією: " + numberOfRecursionCalls + "\n" +
+                    "Викликів з мемоїзацією: " + numberOfMemoCalls
+                );
+                console.log("Рекурсія:", resRec, "Викликів:", numberOfRecursionCalls);
+                console.log("Мемоїзація:", resMemo, "Викликів:", numberOfMemoCalls);
+            } else {
+                alert("Завдання 3: введіть ціле число >= 0.");
+            }
+        }
+    </script>
 </body>
 </html>
