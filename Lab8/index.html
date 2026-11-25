@@ -6,30 +6,112 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Завдання 1: Таби (Закладинки)</h2>
-    <table class="tabs-table">
-        <tr>
-            <td id="tab1" class="tab active" onclick="openTab(1)">Назва 1</td>
-            <td id="tab2" class="tab" onclick="openTab(2)">Назва 2</td>
-            <td id="tab3" class="tab" onclick="openTab(3)">Назва 3</td>
-            <td id="tab4" class="tab" onclick="openTab(4)">Назва 4</td>
-            <td id="tab5" class="tab" onclick="openTab(5)">Назва 5</td>
-        </tr>
-        <tr>
-            <td colspan="5" id="tab-content" class="tab-body">
-                <h3>Розділ 1: Веб-розробка</h3>
-                <p>HTML та CSS створюють структуру та зовнішній вигляд сторінки.</p>
-                <img src="https://picsum.photos/id/1/300/180" alt="Таб 1">
-            </td>
-        </tr>
-    </table>
+    <header class="site-header">
+        <div class="logo">WebDev Portal</div>
+        <nav class="main-nav">
+            <a href="#slider-section">Головна</a>
+            <a href="#tabs-section">Технології</a>
+            <a href="#auth-section">Кабінет</a>
+        </nav>
+    </header>
 
-    <hr>
+    <section id="slider-section" class="slider">
+        <div class="item">
+            <img src="https://vse-kursy.com/uploads/posts/2020-03/1583478478_webprogr-1.jpg" alt="Сучасна веб-розробка">
+            <div class="slideText">Сучасна веб-розробка та дизайн</div>
+        </div>
+        <div class="item">
+            <img src="https://img.magnific.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?semt=ais_hybrid&w=740&q=80" alt="Інтерактивний JavaScript">
+            <div class="slideText">Слайдд 2</div>
+        </div>
+        <div class="item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRml3CSsbvdYayDuMWl9qEeVxwX6kfO5aqd-BJG07EpKWd1ApgcwFnqess&s=10" alt="Робота з DOM API">
+            <div class="slideText">Слайд3</div>
+        </div>
+        <div class="item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS27dxHHObpZzotG_IBumW_9MnSToizOLR3323hfe-ZAtr4Y_doThISYcA&s=10" alt="Адаптивна верстка">
+            <div class="slideText">Слайд4</div>
+        </div>
 
-    <h2>Завдання 2: Генератор елементів списку</h2>
-    <input type="text" id="item-text" placeholder="Введіть текст елемента">
-    <button onclick="addItem()">Додати елемент</button>
-    <ul id="dynamic-list"></ul>
+        <a class="prev" onclick="minusSlide()">❮</a>
+        <a class="next" onclick="plusSlide()">❯</a>
+
+        <div class="slider-dots">
+            <span class="slider-dots_item" onclick="currentSlide(1)"></span>
+            <span class="slider-dots_item" onclick="currentSlide(2)"></span>
+            <span class="slider-dots_item" onclick="currentSlide(3)"></span>
+            <span class="slider-dots_item" onclick="currentSlide(4)"></span>
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="tabs-section">
+            <h2>Завдання 1: Таби (Закладинки)</h2>
+            <table class="tabs-table">
+                <tr>
+                    <td id="tab1" class="tab active" onclick="openTab(1)">Назва 1</td>
+                    <td id="tab2" class="tab" onclick="openTab(2)">Назва 2</td>
+                    <td id="tab3" class="tab" onclick="openTab(3)">Назва 3</td>
+                    <td id="tab4" class="tab" onclick="openTab(4)">Назва 4</td>
+                    <td id="tab5" class="tab" onclick="openTab(5)">Назва 5</td>
+                </tr>
+                <tr>
+                    <td colspan="5" id="tab-content" class="tab-body">
+                        <h3>Розділ 1: Веб-розробка</h3>
+                        <p>HTML та CSS створюють структуру та зовнішній вигляд сторінки.</p>
+                        <img src="[https://picsum.photos/id/1/300/180](https://picsum.photos/id/1/300/180)" alt="Таб 1">
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="auth-section">
+            <h2>Завдання 5: Валідація форм авторизації та реєстрації</h2>
+            <div class="forms-wrapper">
+                <form id="login-form" class="auth-form" onsubmit="return validateLoginForm()" novalidate>
+                    <h3>Авторизація</h3>
+                    <div class="form-group">
+                        <label for="login-email">Email:</label>
+                        <input type="email" id="login-email" placeholder="user@example.com">
+                        <span class="error-msg" id="login-email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Пароль:</label>
+                        <input type="password" id="login-password" placeholder="Мінімум 6 символів">
+                        <span class="error-msg" id="login-password-error"></span>
+                    </div>
+                    <button type="submit">Увійти</button>
+                    <div class="success-msg" id="login-success"></div>
+                </form>
+
+                <form id="register-form" class="auth-form" onsubmit="return validateRegisterForm()" novalidate>
+                    <h3>Реєстрація</h3>
+                    <div class="form-group">
+                        <label for="reg-name">Ім'я користувача:</label>
+                        <input type="text" id="reg-name" placeholder="Введіть ім'я">
+                        <span class="error-msg" id="reg-name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-email">Email:</label>
+                        <input type="email" id="reg-email" placeholder="user@example.com">
+                        <span class="error-msg" id="reg-email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password">Пароль:</label>
+                        <input type="password" id="reg-password" placeholder="Мінімум 6 символів">
+                        <span class="error-msg" id="reg-password-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-confirm">Підтвердження пароля:</label>
+                        <input type="password" id="reg-confirm" placeholder="Повторіть пароль">
+                        <span class="error-msg" id="reg-confirm-error"></span>
+                    </div>
+                    <button type="submit">Зареєструватися</button>
+                    <div class="success-msg" id="reg-success"></div>
+                </form>
+            </div>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>

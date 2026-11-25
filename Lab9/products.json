@@ -3,28 +3,35 @@
         "name": "Кросівки бігові",
         "category": "shoe",
         "amount": 5,
-        "image": "https://picsum.photos/id/21/200/150",
+        "image": "https://konfiskat.ua/img/p/full/387/344387a.jpg?v=ef579b3ebb8186498faa34d7d22dd588",
         "size": 42
     },
     {
         "name": "Черевики зимові",
         "category": "shoe",
         "amount": 3,
-        "image": "https://picsum.photos/id/22/200/150",
+        "image": "https://www.calorie-ua.com/image/cache//catalog/product/2023-09-30c/IMG_8209-750x750.jpg",
         "size": 43
+    },
+    {
+        "name": "Кеди повсякденні",
+        "category": "shoe",
+        "amount": 4,
+        "image": "https://converse.org.ua/image/catalog/easyfoto/268/kedy-converse-chuck-taylor-all-star-hi-black-132170s-1.jpg",
+        "size": 41
     },
     {
         "name": "Яблука свіжі",
         "category": "grocerie",
         "amount": 10,
-        "image": "https://picsum.photos/id/23/200/150",
+        "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/960px-Apples.jpg?utm_source=ru.wikipedia.org&utm_campaign=index&utm_content=thumbnail",
         "weight": "1 кг"
     },
     {
         "name": "Сир твердий",
         "category": "grocerie",
         "amount": 4,
-        "image": "https://picsum.photos/id/24/200/150",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx1KKvhAbpdiUc16pa7W7MNzSUqi0ZlQdhMtkbOeVT0_bnValNl8jkC5XtQ5G7V2GTCYu78w8gydfMd5vhMTRiD1joQ54l_YtcySubDg2U&s=10",
         "weight": "300 г"
     }
 ]

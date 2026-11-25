@@ -2,24 +2,27 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Лабораторна робота №10 - DummyJSON Products</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №10 - DummyJSON API</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Каталог товарів (DummyJSON API)</h1>
-        <div class="controls">
-            <input type="text" id="search-input" placeholder="Пошук товару...">
-            <button onclick="searchProducts()">Знайти</button>
-            <select id="category-select" onchange="filterByCategory()">
-                <option value="all">Усі категорії</option>
-            </select>
-        </div>
     </header>
 
-    <main>
-        <div id="products-container"></div>
-    </main>
+    <div class="main-layout">
+        <aside class="sidebar">
+            <h2>Категорії</h2>
+            <ul id="categories-list"></ul>
+            <button id="see-all-btn" onclick="fetchProducts()">See all products</button>
+        </aside>
+
+        <main class="content">
+            <h2 id="section-title">Усі товари</h2>
+            <div id="products-container"></div>
+        </main>
+    </div>
 
     <script src="index.js"></script>
 </body>
